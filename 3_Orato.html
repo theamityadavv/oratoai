@@ -1,0 +1,352 @@
+<html>
+ <head>
+  <title>
+   Orato Dashboard
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Inter', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 text-gray-800">
+  <div class="flex flex-col md:flex-row min-h-screen">
+   <!-- Sidebar -->
+   <div class="bg-white shadow-lg w-full md:w-64 p-6 flex flex-col justify-between">
+    <div>
+     <div class="flex items-center mb-8">
+      <img alt="SpeakTrack logo" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/QtwGqESDNvmNUNDs1aFM_Rj4lYgCpvQvd_So4f9Gk-s.jpg" width="40"/>
+      <span class="ml-3 text-2xl font-semibold">
+       Orato
+      </span>
+     </div>
+     <nav>
+      <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200" href="#">
+       <i class="fas fa-home mr-2">
+       </i>
+       Dashboard
+      </a>
+      <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200" href="#">
+       <i class="fas fa-user mr-2">
+       </i>
+       Profile
+      </a>
+      <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200" href="#">
+       <i class="fas fa-cog mr-2">
+       </i>
+       Settings
+      </a>
+      <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200" href="#">
+       <i class="fas fa-sign-out-alt mr-2">
+       </i>
+       Logout
+      </a>
+     </nav>
+    </div>
+    <div class="mt-8">
+     <div class="flex items-center">
+      <i class="fas fa-fire text-red-500">
+      </i>
+      <span class="ml-2 text-lg font-semibold">
+       Streak: 15 days
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 p-6">
+    <!-- Daily Passage Card -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      Today's Passage
+     </h2>
+     <p class="text-gray-700 mb-4">
+      Welcome to Orato, your personal language learning companion. Our mission is to help you build a 30-day speaking streak by reading one passage aloud each day and recording your webcam video. This consistent practice will significantly improve your speaking skills.
+     </p>
+     <p class="text-gray-700 mb-4">
+      Each day, you will be presented with a new passage to read. After recording, our AI will analyze your speech and provide detailed feedback on your pronunciation, fluency, and use of filler words. This feedback is designed to help you identify areas for improvement and track your progress over time.
+     </p>
+     <p class="text-gray-700 mb-4">
+      Let's get started on your language learning journey. Click the "Start Recording" button below to begin today's passage. Remember, consistency is key to building a strong speaking habit. Happy learning!
+     </p>
+     <button class="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition duration-200" id="start-recording">
+      Start Recording
+     </button>
+    </div>
+    <!-- Webcam Recorder Section -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      Webcam Recorder
+     </h2>
+     <div class="flex flex-col items-center">
+      <div class="w-full h-64 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
+       <video id="webcam-preview" class="rounded-2xl" width="300" height="200" autoplay></video>
+      </div>
+      <div class="flex space-x-4">
+       <button class="bg-green-500 text-white py-2 px-4 rounded-2xl hover:bg-green-600 transition duration-200" id="start-webcam">
+        Start
+       </button>
+       <button class="bg-red-500 text-white py-2 px-4 rounded-2xl hover:bg-red-600 transition duration-200" id="stop-webcam">
+        Stop
+       </button>
+      </div>
+     </div>
+    </div>
+    <!-- Video Preview Section -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      Video Preview
+     </h2>
+     <div class="w-full h-64 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
+      <video id="recorded-video" class="rounded-2xl" width="300" height="200" controls></video>
+     </div>
+     <button class="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition duration-200" id="save-upload">
+      Save &amp; Upload
+     </button>
+    </div>
+    <!-- AI Feedback Panel -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      AI Feedback
+     </h2>
+     <div class="mb-4">
+      <p class="text-gray-700">
+       Pronunciation Score:
+       <span class="font-semibold" id="pronunciation-score">
+        85/100
+       </span>
+      </p>
+      <p class="text-gray-700">
+       Fluency Level:
+       <span class="font-semibold" id="fluency-level">
+        Intermediate
+       </span>
+      </p>
+      <p class="text-gray-700">
+       Filler Words Detected:
+       <span class="font-semibold" id="filler-words">
+        um, uh
+       </span>
+      </p>
+      <p class="text-gray-700">
+       Words Mispronounced:
+       <span class="font-semibold" id="mispronounced-words">
+        lorem (suggestion: lo-rem), ipsum (suggestion: ip-sum)
+       </span>
+      </p>
+     </div>
+     <button class="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition duration-200" id="replay-ai">
+      Replay with AI Transcription Overlay
+     </button>
+    </div>
+    <!-- Streak Tracker Calendar -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      Streak Tracker
+     </h2>
+     <div class="grid grid-cols-7 gap-2">
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full">
+      </div>
+     </div>
+    </div>
+    <!-- Leaderboard / Progress Tracker -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+     <h2 class="text-xl font-semibold mb-4">
+      Leaderboard
+     </h2>
+     <div class="mb-4">
+      <p class="text-gray-700">
+       1. User1 - 30 days
+      </p>
+      <p class="text-gray-700">
+       2. User2 - 28 days
+      </p>
+      <p class="text-gray-700">
+       3. User3 - 25 days
+      </p>
+     </div>
+     <h2 class="text-xl font-semibold mb-4">
+      Progress Tracker
+     </h2>
+     <div class="w-full h-64 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
+      <img alt="Progress graph placeholder" class="rounded-2xl" height="200" src="https://storage.googleapis.com/a1aa/image/9nMqUDZuCnvN3EUr8OU8uc8w3Zz4DbJQcF8h11jaZGs.jpg" width="300"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- AI Chat Bot -->
+  <div class="fixed bottom-4 right-4">
+   <button class="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition duration-200" id="chatbot-toggle">
+    <i class="fas fa-comments">
+    </i>
+   </button>
+   <div class="bg-white rounded-2xl shadow-lg p-4 w-64 hidden" id="chatbot">
+    <div class="flex items-center justify-between mb-4">
+     <h2 class="text-lg font-semibold">
+      AI Chat Bot
+     </h2>
+     <button class="text-gray-500 hover:text-gray-700" id="chatbot-close">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <div class="h-48 overflow-y-auto mb-4" id="chatbot-messages">
+     <div class="bg-gray-100 p-2 rounded mb-2">
+      <p class="text-gray-700">
+       Hello! How can I assist you today?
+      </p>
+     </div>
+    </div>
+    <div class="flex">
+     <input class="flex-1 border border-gray-300 rounded-l-2xl p-2" id="chatbot-input" placeholder="Type a message..." type="text"/>
+     <button class="bg-blue-500 text-white p-2 rounded-r-2xl hover:bg-blue-600 transition duration-200" id="chatbot-send">
+      <i class="fas fa-paper-plane">
+      </i>
+     </button>
+    </div>
+   </div>
+  </div>
+  <script>
+   document.getElementById('chatbot-toggle').addEventListener('click', function() {
+        document.getElementById('chatbot').classList.toggle('hidden');
+    });
+
+    document.getElementById('chatbot-close').addEventListener('click', function() {
+        document.getElementById('chatbot').classList.add('hidden');
+    });
+
+    document.getElementById('chatbot-send').addEventListener('click', function() {
+        const input = document.getElementById('chatbot-input');
+        const message = input.value.trim();
+        if (message) {
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('bg-blue-100', 'p-2', 'rounded', 'mb-2');
+            userMessage.innerHTML = `<p class="text-gray-700">${message}</p>`;
+            document.getElementById('chatbot-messages').appendChild(userMessage);
+            input.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const aiMessage = document.createElement('div');
+                aiMessage.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
+                aiMessage.innerHTML = `<p class="text-gray-700">I'm here to help you with your language learning journey!</p>`;
+                document.getElementById('chatbot-messages').appendChild(aiMessage);
+                document.getElementById('chatbot-messages').scrollTop = document.getElementById('chatbot-messages').scrollHeight;
+            }, 1000);
+        }
+    });
+
+    document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            document.getElementById('chatbot-send').click();
+        }
+    });
+
+    // Webcam and recording functionality
+    let mediaRecorder;
+    let recordedBlobs;
+    let stream;
+
+    document.getElementById('start-webcam').addEventListener('click', async function() {
+        const constraints = {
+            audio: true,
+            video: true
+        };
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+        document.getElementById('webcam-preview').srcObject = stream;
+
+        recordedBlobs = [];
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = (event) => {
+            if (event.data && event.data.size > 0) {
+                recordedBlobs.push(event.data);
+            }
+        };
+        mediaRecorder.start();
+    });
+
+    document.getElementById('stop-webcam').addEventListener('click', function() {
+        mediaRecorder.stop();
+        stream.getTracks().forEach(track => track.stop());
+        const superBuffer = new Blob(recordedBlobs, { type: 'video/webm' });
+        document.getElementById('recorded-video').src = window.URL.createObjectURL(superBuffer);
+    });
+
+    document.getElementById('save-upload').addEventListener('click', function() {
+        alert('Video saved and uploaded!');
+    });
+
+    document.getElementById('replay-ai').addEventListener('click', function() {
+        alert('Replaying video with AI transcription overlay!');
+    });
+  </script>
+ </body>
+</html>
