@@ -3,8 +3,7 @@
   <title>
    Orato Dashboard
   </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <style>
@@ -84,13 +83,13 @@
      </h2>
      <div class="flex flex-col items-center">
       <div class="w-full h-64 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
-       <video id="webcam-preview" class="rounded-2xl" width="300" height="200" autoplay></video>
+       <video id="webcam-preview" class="rounded-2xl" width="300" height="200" autoplay muted playsinline></video>
       </div>
       <div class="flex space-x-4">
        <button class="bg-green-500 text-white py-2 px-4 rounded-2xl hover:bg-green-600 transition duration-200" id="start-webcam">
         Start
        </button>
-       <button class="bg-red-500 text-white py-2 px-4 rounded-2xl hover:bg-red-600 transition duration-200" id="stop-webcam">
+       <button class="bg-red-500 text-white py-2 px-4 rounded-2xl hover:bg-red-600 transition duration-200" id="stop-webcam" disabled>
         Stop
        </button>
       </div>
@@ -104,7 +103,7 @@
      <div class="w-full h-64 bg-gray-200 rounded-2xl mb-4 flex items-center justify-center">
       <video id="recorded-video" class="rounded-2xl" width="300" height="200" controls></video>
      </div>
-     <button class="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition duration-200" id="save-upload">
+     <button class="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition duration-200" id="save-upload" disabled>
       Save &amp; Upload
      </button>
     </div>
@@ -149,72 +148,39 @@
       Streak Tracker
      </h2>
      <div class="grid grid-cols-7 gap-2">
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-green-500 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
-      <div class="w-8 h-8 bg-gray-300 rounded-full">
-      </div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
      </div>
     </div>
     <!-- Leaderboard / Progress Tracker -->
@@ -245,8 +211,7 @@
   <!-- AI Chat Bot -->
   <div class="fixed bottom-4 right-4">
    <button class="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition duration-200" id="chatbot-toggle">
-    <i class="fas fa-comments">
-    </i>
+    <i class="fas fa-comments"></i>
    </button>
    <div class="bg-white rounded-2xl shadow-lg p-4 w-64 hidden" id="chatbot">
     <div class="flex items-center justify-between mb-4">
@@ -254,8 +219,7 @@
       AI Chat Bot
      </h2>
      <button class="text-gray-500 hover:text-gray-700" id="chatbot-close">
-      <i class="fas fa-times">
-      </i>
+      <i class="fas fa-times"></i>
      </button>
     </div>
     <div class="h-48 overflow-y-auto mb-4" id="chatbot-messages">
@@ -268,8 +232,7 @@
     <div class="flex">
      <input class="flex-1 border border-gray-300 rounded-l-2xl p-2" id="chatbot-input" placeholder="Type a message..." type="text"/>
      <button class="bg-blue-500 text-white p-2 rounded-r-2xl hover:bg-blue-600 transition duration-200" id="chatbot-send">
-      <i class="fas fa-paper-plane">
-      </i>
+      <i class="fas fa-paper-plane"></i>
      </button>
     </div>
    </div>
@@ -312,35 +275,65 @@
 
     // Webcam and recording functionality
     let mediaRecorder;
-    let recordedBlobs;
+    let recordedBlobs = [];
     let stream;
 
-    document.getElementById('start-webcam').addEventListener('click', async function() {
-        const constraints = {
-            audio: true,
-            video: true
-        };
-        stream = await navigator.mediaDevices.getUserMedia(constraints);
-        document.getElementById('webcam-preview').srcObject = stream;
+    const startWebcamBtn = document.getElementById('start-webcam');
+    const stopWebcamBtn = document.getElementById('stop-webcam');
+    const saveUploadBtn = document.getElementById('save-upload');
+    const webcamPreview = document.getElementById('webcam-preview');
+    const recordedVideo = document.getElementById('recorded-video');
 
-        recordedBlobs = [];
-        mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.ondataavailable = (event) => {
-            if (event.data && event.data.size > 0) {
-                recordedBlobs.push(event.data);
-            }
-        };
-        mediaRecorder.start();
+    startWebcamBtn.addEventListener('click', async function() {
+        try {
+            const constraints = {
+                audio: true,
+                video: true
+            };
+            stream = await navigator.mediaDevices.getUserMedia(constraints);
+            webcamPreview.srcObject = stream;
+            webcamPreview.play();
+
+            recordedBlobs = [];
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = (event) => {
+                if (event.data && event.data.size > 0) {
+                    recordedBlobs.push(event.data);
+                }
+            };
+
+            mediaRecorder.onstop = () => {
+                const superBuffer = new Blob(recordedBlobs, { type: 'video/webm' });
+                recordedVideo.src = window.URL.createObjectURL(superBuffer);
+                recordedVideo.controls = true;
+                saveUploadBtn.disabled = false;
+            };
+
+            mediaRecorder.start();
+
+            startWebcamBtn.disabled = true;
+            stopWebcamBtn.disabled = false;
+            saveUploadBtn.disabled = true;
+        } catch (err) {
+            alert('Error accessing webcam: ' + err.message);
+        }
     });
 
-    document.getElementById('stop-webcam').addEventListener('click', function() {
-        mediaRecorder.stop();
-        stream.getTracks().forEach(track => track.stop());
-        const superBuffer = new Blob(recordedBlobs, { type: 'video/webm' });
-        document.getElementById('recorded-video').src = window.URL.createObjectURL(superBuffer);
+    stopWebcamBtn.addEventListener('click', function() {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+        }
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+        }
+        webcamPreview.srcObject = null;
+
+        startWebcamBtn.disabled = false;
+        stopWebcamBtn.disabled = true;
     });
 
-    document.getElementById('save-upload').addEventListener('click', function() {
+    saveUploadBtn.addEventListener('click', function() {
         alert('Video saved and uploaded!');
     });
 
